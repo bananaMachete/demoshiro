@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang="zh" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/css/1.css}" rel="stylesheet"/>
+</head>
+<body>
+<h1>欢迎：<span th:text="#{user.username}"></span>光临!请选择你的操作:</h1><br>
+<ul>
+    <shiro:hasPermission name="add"><li>增加</li></shiro:hasPermission>
+    <shiro:hasPermission name="delete"><li>删除</li></shiro:hasPermission>
+    <shiro:hasPermission name="update"><li>修改</li></shiro:hasPermission>
+    <shiro:hasPermission name="query"><li>查询</li></shiro:hasPermission>
+</ul>
+<a th:href="@{/logOut}">点我注销</a>
+
+<script th:src="@{/js/jquery/1.11.0/jquery.js}"></script>
+<script>
+    $(function(){
+        alert("page load finish.");
+    });
+</script>
+</body>
+</html>
